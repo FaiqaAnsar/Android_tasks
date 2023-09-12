@@ -1,0 +1,42 @@
+EditText name, email, age;
+    Button register, view;
+    DatabaseReference reff;
+
+ name = findViewById(R.id.e1);
+        email = findViewById(R.id.e2);
+        age = findViewById(R.id.e3);
+        register = findViewById(R.id.btn1);
+        view = findViewById(R.id.btn2);
+        reff = FirebaseDatabase.getInstance().getReference();
+
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                register();
+
+            }
+        });
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(recyclerview.this, Userlist.class));
+                finish();
+            }
+        });
+
+    }
+        private void register () {
+            String username = name.getText().toString().trim();
+            String useremail = email.getText().toString().trim();
+            String userage = age.getText().toString().trim();
+            String id = reff.push().getKey();
+            User user = new User(username, useremail, userage);
+            reff.child("users").child(id).setValue(user)
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(recyclerview.this, "User Details inserted", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
