@@ -1,0 +1,73 @@
+******************************************* XML ************************************************
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/TextLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_marginTop="100dp"
+        android:layout_gravity="center"
+
+
+        android:background="#B1E673"
+        android:text="Welcome!"
+        android:textColor="#3F51B5"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/countBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+android:layout_gravity="center"
+        android:layout_marginTop="200dp"
+        android:text="Count" />
+
+    <Button
+        android:id="@+id/ResetBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reset"
+        android:textColorHighlight="@color/black"
+        android:layout_marginLeft="160dp"
+
+        />
+
+<ImageButton
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center_horizontal"
+        android:alpha="0.3"
+        android:foregroundGravity="center"
+        android:src="@drawable/ic_baseline_replay_24" />
+
+</LinearLayout>
+*********************************************** JAVA **********************************************************
+
+ TextView Tv = findViewById(R.id.TextLabel);
+        Counter_btn = (Button) findViewById(R.id.countBtn);
+        Reset_btn = findViewById(R.id.ResetBtn);
+        Counter_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                count++;
+                Tv.setText("Your Counter is Now"+count);
+            }
+        });
+
+        Reset_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                count=0;
+                Tv.setText("Your Counter is Now"+count);
+
+
+            }
+        });
