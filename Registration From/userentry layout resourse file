@@ -1,0 +1,29 @@
+public class userentry {
+    private String Name;
+    private Integer Age;
+    private long Email;
+  
+
+    public userentry(){
+
+    }
+    public String getName(){
+        return Name;
+    }
+    public void setName(String name){
+        Name=name;
+    }
+    public Integer getAge(){
+        return Age;
+    }
+    public void setAge(Integer age){
+        Age=age;
+    }
+    public long getEmail(){
+        return Email;
+    }
+    public void setEmail(long email){
+        Email=email;
+    }
+   
+}
